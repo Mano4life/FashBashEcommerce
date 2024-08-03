@@ -1,0 +1,58 @@
+<section class="form-section container-fluid p-5">
+  <div class="form-wrapper container bg-light p-5 rounded">
+    <form [formGroup]="registerForm" (submit)="onSubmit()">
+      <h3 class="text-center fw-bold text-uppercase mb-4">Register</h3>
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control input-focus-border-color"
+          id="name-field"
+          placeholder="Name"
+          formControlName="name"
+        />
+        @if(registerForm.controls['name'].invalid &&
+        registerForm.controls['name'].touched){
+        <p class="text-danger">name is not valid</p>
+        }@else if (registerForm.controls['name'].valid &&
+        registerForm.controls['name'].touched) {
+        <p class="text-success">name is valid</p>
+        }
+      </div>
+      <div class="mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="email-field"
+          placeholder="Email"
+          formControlName="email"
+        />
+        @if(registerForm.controls['email'].invalid &&
+        registerForm.controls['email'].touched){
+        <p class="text-danger">Email is not valid</p>
+        }@else if (registerForm.controls['email'].valid &&
+        registerForm.controls['email'].touched) {
+        <p class="text-success">Email is valid</p>
+        }
+      </div>
+      <div class="mb-3">
+        <input
+          type="password"
+          class="form-control"
+          id="password-field"
+          placeholder="Password"
+          formControlName="password"
+        />
+        @if(registerForm.controls['password'].invalid &&
+        registerForm.controls['password'].touched){
+        <p class="text-danger">password is not valid</p>
+        }@else if (registerForm.controls['password'].valid &&
+        registerForm.controls['password'].touched) {
+        <p class="text-success">password is valid</p>
+        }
+      </div>
+      <button type="submit" class="btn btn-outline-success fw-bold w-100 mt-4">
+        Signup
+      </button>
+    </form>
+  </div>
+</section>

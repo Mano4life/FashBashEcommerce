@@ -1,0 +1,42 @@
+<section class="form-section container-fluid p-5">
+  <div class="form-wrapper container bg-light p-5 rounded">
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+      <h3 class="text-center fw-bold text-uppercase mb-4">login</h3>
+      <div class="mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="email-field"
+          placeholder="Email"
+          formControlName="email"
+        />
+        @if(loginForm.controls['email'].invalid &&
+        loginForm.controls['email'].touched){
+        <p class="text-danger">Email is not valid</p>
+        }@else if (loginForm.controls['email'].valid &&
+        loginForm.controls['email'].touched) {
+        <p class="text-success">Email is valid</p>
+        }
+      </div>
+      <div class="mb-3">
+        <input
+          type="password"
+          class="form-control"
+          id="password-field"
+          placeholder="Password"
+          formControlName="password"
+        />
+        @if(loginForm.controls['password'].invalid &&
+        loginForm.controls['password'].touched){
+        <p class="text-danger">password is not valid</p>
+        }@else if (loginForm.controls['password'].valid &&
+        loginForm.controls['password'].touched) {
+        <p class="text-success">password is valid</p>
+        }
+      </div>
+      <button type="submit" class="btn btn-outline-success fw-bold w-100 mt-4">
+        Signup
+      </button>
+    </form>
+  </div>
+</section>

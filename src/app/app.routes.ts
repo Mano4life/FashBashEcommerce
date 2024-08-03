@@ -1,3 +1,41 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ViewComponent } from './view/view.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { CartComponent } from './cart/cart.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+{
+  path: '',
+  component: HomeComponent,
+  title: 'Ecommerce - Home'
+},
+{
+  path: 'register',
+  component: RegisterComponent,
+  title: 'Ecommerce - Register',
+},
+{
+  path: 'login',
+  component: LoginComponent,
+  title: 'Ecommerce - login',
+},
+{
+  path: 'cart',
+  component: CartComponent,
+  title: 'Ecommerce - cart'
+},
+{
+  path: 'view/:id',
+  component: ViewComponent,
+  title: 'Ecommerce - Product'
+},
+{
+  path: '**',
+  redirectTo: '',
+  pathMatch: 'full'
+}
+
+
+];
