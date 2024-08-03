@@ -62,5 +62,7 @@ export class RegisterComponent {
 
   onSubmit() {
     console.log(this.registerForm.value);
+    alert('Welcome ' + this.registerForm.value.name);
+    this.registerForm.reset();
   }
 }

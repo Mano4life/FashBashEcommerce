@@ -30,5 +30,7 @@ export class LoginComponent {
 
   onSubmit() {
     console.log(this.loginForm.value);
+    alert('Welcome Back ' + this.loginForm.value.email);
+    this.loginForm.reset();
   }
 }
