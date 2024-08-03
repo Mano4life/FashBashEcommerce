@@ -36,6 +36,22 @@
       </div>
       <div class="mb-3">
         <input
+          type="text"
+          class="form-control input-focus-border-color"
+          id="username-field"
+          placeholder="username"
+          formControlName="username"
+        />
+        @if(registerForm.controls['username'].invalid &&
+        registerForm.controls['username'].touched){
+        <p class="text-danger">username is not valid</p>
+        }@else if (registerForm.controls['username'].valid &&
+        registerForm.controls['username'].touched) {
+        <p class="text-success">username is valid</p>
+        }
+      </div>
+      <div class="mb-3">
+        <input
           type="password"
           class="form-control"
           id="password-field"
@@ -50,9 +66,34 @@
         <p class="text-success">password is valid</p>
         }
       </div>
+      <div class="mb-3">
+        <input
+          type="password"
+          class="form-control"
+          id="confirm-password-field"
+          placeholder="Confirm Password"
+          formControlName="confirmPassword"
+        />
+        @if(registerForm.controls['confirmPassword'].invalid &&
+        registerForm.controls['confirmPassword'].touched){
+        <p class="text-danger">password is not valid</p>
+        } 
+        @if(registerForm.errors?.['passwordMismatch'] && registerForm.controls['confirmPassword'].touched) {
+          <p class="text-danger">Passwords do not match</p>
+        }
+        @if (registerForm.controls['confirmPassword'].valid &&
+        registerForm.controls['confirmPassword'].touched) {
+        <p class="text-success">password is valid</p>
+        }
+      </div>
       <button type="submit" class="btn btn-outline-success fw-bold w-100 mt-4">
         Signup
       </button>
+
+      <p class="text-center mt-4">
+        Already registered?
+        <a class="text-success" routerLink="/login">Login</a>
+      </p>
     </form>
   </div>
 </section>
