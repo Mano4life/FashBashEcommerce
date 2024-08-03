@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  constructor(private router: Router) {}
   products: any[] = [
     {
       id: 1,
@@ -89,5 +91,18 @@ export class HomeComponent {
       rating: 1
     }
   ]
+  onAddToCart(index:any) {
+    if (this.products[index].stock > 0) {
+      alert('added to cart');
+    }
+    else {
+      alert('out of stock');
+    }
+  }
+  onProductClick(id: number) {
+    this.router.navigate(['/view', id]);
+    
+  }
+
 
 }

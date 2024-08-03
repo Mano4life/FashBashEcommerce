@@ -1,1 +1,46 @@
 
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 left-section shadow p-5">
+      <img [src]="product.image" alt="product image" class="w-100">
+    </div>
+    <div class="col-6 right-section p-5">
+      <h1 class="fw-bold">{{ product.name }}</h1>
+      <p class="text-muted mb-1">{{ product.description }}</p>
+      <div class="rating d-flex gap-1">
+        @for (rate of [].constructor(product.rating); track $index) {
+          <i class="bi bi-star-fill text-success"></i>
+        }
+        @for (rate of [].constructor(5 - product.rating); track $index) {
+          <i class="bi bi-star-fill text-secondary"></i>
+        }
+      </div>
+      <hr>
+
+      <h3>${{ product.price }}</h3>
+      <hr>
+      @if(product.stock > 0){
+        <span class="badge rounded-pill bg-success">
+          in stock
+        </span>
+        }@else {
+        <span class="badge rounded-pill bg-danger">
+          out of stock
+        </span>
+        }
+      <hr>
+      <div class="counter my-4 rounded-5">
+        <button class="quantity-btns" (click)="onDecreaseQuantity()">
+          <i class="bi bi-dash"></i>
+        </button>
+        <span class="mx-3" >{{productQuantity}}</span>
+        <button class="quantity-btns" (click)="onIncreaseQuantity()">
+          <i class="bi bi-plus"></i>
+        </button>
+      </div>
+
+      <button id="buy-btn" class="btn btn-success rounded-5 px-5" (click)="onBuyNow()">Buy Now</button>
+      <button id="add-cart-btn" class="btn btn-outline-success rounded-5 px-5 ms-3" (click)="onAddToCart()">Add to cart</button>
+    </div>
+  </div>
+</div>

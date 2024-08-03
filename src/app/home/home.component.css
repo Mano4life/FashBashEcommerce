@@ -1,14 +1,20 @@
-img {
-  height: 350px;
-  object-fit: cover;
-}
-
 .card {
-  cursor: pointer;
+  overflow-x: hidden;
 }
 
 .card:hover .card-title {
   color: green;
+}
+
+img {
+  height: 350px;
+  object-fit: cover;
+  transition: 0.2s all;
+  cursor: pointer;
+}
+
+img:hover {
+  transform: scale(1.1);
 }
 
 .card-title {
@@ -22,8 +28,8 @@ img {
 }
 
 .card .btn {
-  border-color: #444 ;
-  color: #444 ;
+  border-color: #444;
+  color: #444;
   transition: 0.2s all;
 }
 
@@ -35,5 +41,5 @@ img {
 .badge {
   left: 10px;
   top: 10px;
-  padding: 10px 1rem
+  padding: 10px 1rem;
 }

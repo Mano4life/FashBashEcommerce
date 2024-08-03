@@ -3,9 +3,9 @@
   <div class="row">
     @for(product of products; track $index){
     <div class="col-3 p-3">
-      <div class="card border-0 shadow position-relative">
+      <div class="card border-0 shadow position-relative" >
         <div class="img-wrapper position-relative">
-          <img [src]="product.image" class="card-img-top" alt="product img" />
+          <img [src]="product.image" class="card-img-top" alt="product img" (click)="onProductClick(product.id)"/>
           @if(product.stock > 0){
           <span class="position-absolute badge rounded-pill bg-success">
             in stock
@@ -29,7 +29,7 @@
               <i class="bi bi-star-fill text-secondary"></i>
             }
           </div>
-          <a href="#" class="btn btn-outline-success rounded-5 px-4 mt-3">add to cart</a>
+          <button class="btn btn-outline-success rounded-5 px-4 mt-3" (click)="onAddToCart($index)">add to cart</button>
         </div>
       </div>
     </div>
