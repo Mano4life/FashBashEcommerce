@@ -4,6 +4,7 @@ import { ViewComponent } from './view/view.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
 {
@@ -33,8 +34,8 @@ export const routes: Routes = [
 },
 {
   path: '**',
-  redirectTo: '',
-  pathMatch: 'full'
+  component: NotFoundComponent,
+  title: 'not found'
 }
 
 
