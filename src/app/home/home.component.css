@@ -1,0 +1,39 @@
+img {
+  height: 350px;
+  object-fit: cover;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card:hover .card-title {
+  color: green;
+}
+
+.card-title {
+  font-size: 18px;
+  transition: 0.2s all;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #444;
+}
+
+.card .btn {
+  border-color: #444 ;
+  color: #444 ;
+  transition: 0.2s all;
+}
+
+.card .btn:hover {
+  border-color: green;
+  color: #fff;
+}
+
+.badge {
+  left: 10px;
+  top: 10px;
+  padding: 10px 1rem
+}

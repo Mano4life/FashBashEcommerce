@@ -1,17 +1,38 @@
-<div class="container">
-  <h5>welcome to our shopping website start shopping...</h5>
+<div class="container mt-5">
+  <h5 class="mb-5">welcome to our shopping website start shopping...</h5>
   <div class="row">
     @for(product of products; track $index){
-    <div class="col-3">
-      <div class="card" style="width: 18rem;">
-        <img [src]="product.image" class="card-img-top" alt="...">
+    <div class="col-3 p-3">
+      <div class="card border-0 shadow position-relative">
+        <div class="img-wrapper position-relative">
+          <img [src]="product.image" class="card-img-top" alt="product img" />
+          @if(product.stock > 0){
+          <span class="position-absolute badge rounded-pill bg-success">
+            in stock
+          </span>
+          }@else {
+          <span class="position-absolute badge rounded-pill bg-danger">
+            out of stock
+          </span>
+          }
+        </div>
         <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
-          <p class="card-text"> {{product.description}} </p>
-          <a href="#" class="btn btn-outline-success rounded-5">add to cart</a>
+          <h5 class="card-title d-flex justify-content-between">
+            {{ product.name }} <span>${{ product.price }}</span>
+          </h5>
+          <p class="card-text">{{ product.description }}</p>
+          <div class="rating">
+            @for (rate of [].constructor(product.rating); track $index) {
+              <i class="bi bi-star-fill text-success"></i>
+            }
+            @for (rate of [].constructor(5 - product.rating); track $index) {
+              <i class="bi bi-star-fill text-secondary"></i>
+            }
+          </div>
+          <a href="#" class="btn btn-outline-success rounded-5 px-4 mt-3">add to cart</a>
         </div>
       </div>
     </div>
-  }
+    }
   </div>
 </div>
