@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartService } from '../services/cart/cart.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CartCounterService } from '../services/cart-counter/cart-counter.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,11 +12,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
-
+  cartCounter!: number;
   totalPrice: number = 0;
   productProxies: any[] = []; 
   cartItems: any[] = [];
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private counter: CartCounterService) {}
 
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
@@ -26,6 +27,10 @@ export class CartComponent {
     }));
 
     this.totalPrice = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+
+    this.counter.getCounter().subscribe((value) => {
+      this.cartCounter = value;
+    })
   }
 
     //increasing & decreasing quantity
@@ -43,7 +48,11 @@ export class CartComponent {
       }
     }
 
+    decrement(){
+      this.counter.updateCounter(this.cartCounter - 1);
+    }
     onRemoveItem(item: any) {
-      this.cartItems = this.cartService.removeCartItem(item);
+      this.productProxies = this.cartService.removeCartItem(item);
+      this.decrement();
     }
 }
