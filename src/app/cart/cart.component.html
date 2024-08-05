@@ -1,5 +1,9 @@
 <div class="container mt-5">
   <h2 class="fw-bold">Cart</h2>
+
+  @if( productProxies.length === 0 ) {
+    <p class="text-center h1">Cart is empty</p>
+  }@else {
   
   <table>
     <thead>
@@ -36,7 +40,7 @@
         <td>
           <button class="remove-btn" (click)="onRemoveItem(item)"><i class="bi bi-x"></i></button>
         </td>
-        <td>{{ item.price | currency }}</td>
+        <td class="fw-bold">{{ item.price | currency }}</td>
       </tr>
       <tr>
         <td></td>
@@ -47,4 +51,6 @@
       </tr>
     </tbody>
   </table>
+
+}
 </div>
