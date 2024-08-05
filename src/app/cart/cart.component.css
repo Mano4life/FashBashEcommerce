@@ -1,0 +1,91 @@
+img {
+  width: 100px;
+}
+
+thead {
+  border-bottom: 2px solid #ccc;
+}
+
+th, td {
+  padding: 1.5rem 1rem;
+}
+
+tbody tr {
+  border-bottom: 2px solid #ddd;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+.quantity-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+
+.quantity-field input {
+  width: 55px;
+  text-align: center;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  border-inline: 1px solid #ccc;
+}
+
+.quantity-field input::-webkit-outer-spin-button,
+.quantity-field input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-field input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.quantity-btns {
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 1rem;
+  width: 55px;
+  transition: .2s all;
+}
+
+.quantity-btns:hover {
+  background-color: green;
+  color: #fff;
+  transform: scale(1.1);
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.remove-btn {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  width: 55px;
+  background-color: transparent;
+  transition: .2s all;
+}
+
+.remove-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.total-wrapper {
+  border: 1px solid #ccc;
+  padding: 1rem 2rem;
+  width: 200px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-wrapper span {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}

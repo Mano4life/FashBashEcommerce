@@ -1,0 +1,31 @@
+.nav-link {
+  color: #333;
+  font-weight: 600;
+}
+
+.cart-btn {
+  position: relative;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.cart-btn i {
+  font-size: 1.1rem;
+}
+
+.counter {
+  position: absolute;
+  top: -3px;
+  right: -1rem;
+  background-color: #ccc;
+  color: #333;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+}

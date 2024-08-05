@@ -27,7 +27,7 @@ export const routes: Routes = [
   path: 'cart',
   component: CartComponent,
   title: 'Ecommerce - cart',
-  canActivate: [isLoggedInGuard]
+  // canActivate: [isLoggedInGuard]
 },
 {
   path: 'view/:id',
